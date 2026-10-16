@@ -1,0 +1,37 @@
+{
+  "name": "agentic-light-show-editor-for-tesla",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/core",
+    "packages/probe",
+    "packages/show",
+    "packages/viewer"
+  ],
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "test": "node --test packages/*/test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "probe": "node packages/probe/src/build.ts",
+    "show": "node packages/show/src/compile.ts",
+    "view": "node packages/viewer/server.ts",
+    "route": "packages/audio/.venv/bin/python packages/audio/route.py"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "description": "Agentic Light Show Editor for Tesla: song analysis, choreography skills, car simulation and a 3D review viewer. Not affiliated with Tesla, Inc.",
+  "keywords": [
+    "tesla",
+    "light show",
+    "fseq",
+    "xlights",
+    "choreography",
+    "agent",
+    "three.js"
+  ]
+}

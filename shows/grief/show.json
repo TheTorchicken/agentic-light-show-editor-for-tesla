@@ -1,0 +1,11 @@
+{
+  "title": "Grief",
+  "artist": "KzX",
+  "profile": "profiles/model3-2027.json",
+  "audio": "workspace/grief/Grief.wav",
+  "analysis": "workspace/grief/analysis.json",
+  "theme": {
+    "colors": ["#ff0000", "#ffffff"],
+    "note": "Red and black. Black is darkness, so the interior uses red and white."
+  }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Show Viewer</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/build/three.module.js", "three/addons/": "/vendor/three/examples/jsm/" } }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title"><a href="/" class="back" title="All shows">←</a><span id="title">Loading…</span><span id="carName" class="muted"></span></div>
+    <div class="transport">
+      <button id="play" title="Play / pause (space)">▶</button>
+      <span id="clock" class="mono">0:00.00</span>
+      <select id="speed" title="Playback speed">
+        <option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option>
+      </select>
+      <button id="recompile" title="Recompile the show and reload">Recompile</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage">
+      <div class="viewbar">
+        <div class="seg" role="group" aria-label="View mode">
+          <button data-mode="3d" class="on">3D</button><button data-mode="2d">2D</button>
+        </div>
+        <div class="seg" role="group" aria-label="Environment">
+          <button data-env="studio" class="on">Studio</button><button data-env="garage">Night garage</button>
+        </div>
+        <select id="testMove" title="Preview a closure move on the 3D car (not part of the show)">
+          <option value="">Test moves…</option>
+          <option value="mirrors">Fold mirrors</option>
+          <option value="windows">Windows down</option>
+          <option value="windowDance">Window dance</option>
+          <option value="trunk">Open trunk</option>
+          <option value="chargePort">Charge port dance</option>
+        </select>
+        <div class="seg cams" role="group" aria-label="Camera">
+          <button data-cam="front-corner">Front ¾</button><button data-cam="front">Front</button><button data-cam="side">Side</button><button data-cam="rear">Rear</button><button data-cam="rear-corner">Rear ¾</button><button data-cam="top">Top</button>
+        </div>
+      </div>
+      <canvas id="car3d"></canvas>
+      <canvas id="car" hidden></canvas>
+      <p id="modelStatus" class="hint"></p>
+      <p class="hint">Drag to orbit · click lights to select them · shift-drag the timeline for a range · space plays · ←/→ one beat</p>
+    </section>
+
+    <aside>
+      <h2>Note</h2>
+      <div id="selection" class="selection muted">No lights selected</div>
+      <div id="range" class="mono muted"></div>
+      <textarea id="noteText" rows="4" placeholder="What should change here? (N to focus, ⌘↵ to save)"></textarea>
+      <button id="addNote">Add note</button>
+      <h2>Notes <span id="noteCount" class="muted"></span></h2>
+      <ol id="notes"></ol>
+    </aside>
+
+    <section class="timeline">
+      <canvas id="overview"></canvas>
+      <canvas id="lanes"></canvas>
+    </section>
+  </main>
+
+  <audio id="audio" preload="auto"></audio>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

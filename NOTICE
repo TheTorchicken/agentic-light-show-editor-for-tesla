@@ -1,0 +1,22 @@
+Agentic Light Show Editor for Tesla
+Copyright 2026 Agentic Light Show Editor for Tesla contributors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Not affiliated with, endorsed by, or sponsored by Tesla, Inc. Tesla, Model 3 and related
+names are trademarks of Tesla, Inc. The FSEQ format and the light show channel layout are
+described in Tesla's public light-show documentation; this project contains no code or
+show files from that repository.
+
+Third-party software used (installed as dependencies, not bundled in this repository):
+- three.js (MIT License) for the 3D viewer
+- librosa (ISC License) for audio analysis
+- Demucs (MIT License) for stem separation
+- TypeScript (Apache-2.0) for type checking
+
+Third-party content not included in this repository:
+- The 3D car model used by the viewer is downloaded separately by each user. The model
+  referenced in profiles/model3-2027.json is "2024 Tesla Model 3 + Interior" by tonielpro520
+  (https://sketchfab.com/3d-models/2024-tesla-model-3-interior-61ddcbdbd3854c239e0c95bf60b00022),
+  licensed under CC BY 4.0. The viewer credits it when loaded.
+- Songs referenced by example shows are not included. Use your own copies.

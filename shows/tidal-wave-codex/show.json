@@ -1,0 +1,8 @@
+{
+  "title": "Tidal Wave (Codex)",
+  "artist": "Earlier AI-made version, for comparison",
+  "profile": "profiles/model3-2027.json",
+  "audio": "workspace/tidal-wave/TidalWave.wav",
+  "analysis": "workspace/tidal-wave/analysis.json",
+  "fseq": "workspace/tidal-wave-codex/Tidal_Wave_V3.fseq"
+}

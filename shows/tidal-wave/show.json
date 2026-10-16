@@ -1,0 +1,7 @@
+{
+  "title": "Tidal Wave",
+  "profile": "profiles/model3-2027.json",
+  "audio": "workspace/tidal-wave/TidalWave.wav",
+  "analysis": "workspace/tidal-wave/analysis.json",
+  "theme": { "colors": ["#00e5ff", "#8a2be2"], "note": "Cyan and purple" }
+}

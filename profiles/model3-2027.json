@@ -1,0 +1,1135 @@
+{
+  "car": "Model 3",
+  "modelYear": 2027,
+  "trim": "Premium",
+  "evidence": "docs/findings/2026-10-probe-run-1.md",
+  "behaviors": {
+    "onOff": "Values at or above ~50% are on. Ramp codes and mid values act as instant on.",
+    "ramp": "Turn-on codes: 179 = ~2000 ms, 204 = ~1000 ms, 230 = ~500 ms. Turn-off codes: 26 = ~350 ms, 51 = ~1000 ms, 77 = ~2000 ms. 128 behaves like 179.",
+    "full": "Brightness follows the value 0-255.",
+    "rgb": "Three consecutive channels: red, green, blue, each 0-255."
+  },
+  "views": {
+    "front": {
+      "outline": [
+        [0.03, 0.42],
+        [0.06, 0.25],
+        [0.2, 0.16],
+        [0.5, 0.13],
+        [0.8, 0.16],
+        [0.94, 0.25],
+        [0.97, 0.42],
+        [0.9, 0.47],
+        [0.1, 0.47],
+        [0.03, 0.42]
+      ]
+    },
+    "rear": {
+      "outline": [
+        [0.04, 0.44],
+        [0.06, 0.2],
+        [0.22, 0.08],
+        [0.5, 0.06],
+        [0.78, 0.08],
+        [0.94, 0.2],
+        [0.96, 0.44],
+        [0.9, 0.48],
+        [0.1, 0.48],
+        [0.04, 0.44]
+      ]
+    },
+    "interior": {
+      "outline": [
+        [0.14, 0.06],
+        [0.86, 0.06],
+        [0.86, 0.96],
+        [0.14, 0.96],
+        [0.14, 0.06]
+      ],
+      "note": "Seen from above, front at the top. The five accents form one upside-down U; the screen sits below its center."
+    }
+  },
+  "lights": [
+    {
+      "id": "outerR",
+      "name": "Right outer main beam",
+      "channels": [2],
+      "behavior": "onOff",
+      "minFlashMs": 20,
+      "color": "#f4f8ff",
+      "shapes": [
+        {
+          "view": "front",
+          "dot": [0.27, 0.3],
+          "r": 0.018
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [0.955, 0.47, 0.666],
+          "r": 0.025
+        }
+      ]
+    },
+    {
+      "id": "outerL",
+      "name": "Left outer main beam",
+      "channels": [1],
+      "behavior": "onOff",
+      "minFlashMs": 20,
+      "color": "#f4f8ff",
+      "shapes": [
+        {
+          "view": "front",
+          "dot": [0.73, 0.3],
+          "r": 0.018
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [0.955, 0.47, -0.666],
+          "r": 0.025
+        }
+      ]
+    },
+    {
+      "id": "innerR",
+      "name": "Right inner main beam",
+      "channels": [4],
+      "behavior": "ramp",
+      "color": "#ffffff",
+      "shapes": [
+        {
+          "view": "front",
+          "dot": [0.19, 0.295],
+          "r": 0.026
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [0.965, 0.47, 0.558],
+          "r": 0.03
+        }
+      ]
+    },
+    {
+      "id": "innerL",
+      "name": "Left inner main beam",
+      "channels": [3],
+      "behavior": "ramp",
+      "color": "#ffffff",
+      "shapes": [
+        {
+          "view": "front",
+          "dot": [0.81, 0.295],
+          "r": 0.026
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [0.965, 0.47, -0.558],
+          "r": 0.03
+        }
+      ]
+    },
+    {
+      "id": "drlR",
+      "name": "Right DRL strip",
+      "channels": [8],
+      "behavior": "ramp",
+      "color": "#eef4ff",
+      "notes": "Channels 4, 5 and 6 (7-12) all drive this same strip, combined as OR. Use only channel 4.",
+      "shapes": [
+        {
+          "view": "front",
+          "strip": [
+            [0.11, 0.27],
+            [0.18, 0.255],
+            [0.28, 0.265],
+            [0.335, 0.31]
+          ],
+          "w": 0.008
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.9, 0.5, 0.774],
+            [0.94, 0.505, 0.684],
+            [0.965, 0.495, 0.558],
+            [0.985, 0.47, 0.468]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "drlL",
+      "name": "Left DRL strip",
+      "channels": [7],
+      "behavior": "ramp",
+      "color": "#eef4ff",
+      "shapes": [
+        {
+          "view": "front",
+          "strip": [
+            [0.89, 0.27],
+            [0.82, 0.255],
+            [0.72, 0.265],
+            [0.665, 0.31]
+          ],
+          "w": 0.008
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.9, 0.5, -0.774],
+            [0.94, 0.505, -0.684],
+            [0.965, 0.495, -0.558],
+            [0.985, 0.47, -0.468]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "turnFR",
+      "name": "Right front turn",
+      "channels": [14],
+      "behavior": "ramp",
+      "minFlashMs": 40,
+      "color": "#ffa31a",
+      "shapes": [
+        {
+          "view": "front",
+          "strip": [
+            [0.14, 0.33],
+            [0.3, 0.335]
+          ],
+          "w": 0.008
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.92, 0.445, 0.747],
+            [0.95, 0.44, 0.648],
+            [0.975, 0.435, 0.522]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "turnFL",
+      "name": "Left front turn",
+      "channels": [13],
+      "behavior": "ramp",
+      "minFlashMs": 40,
+      "color": "#ffa31a",
+      "shapes": [
+        {
+          "view": "front",
+          "strip": [
+            [0.86, 0.33],
+            [0.7, 0.335]
+          ],
+          "w": 0.008
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.92, 0.445, -0.747],
+            [0.95, 0.44, -0.648],
+            [0.975, 0.435, -0.522]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "repeaterR",
+      "name": "Right side repeater",
+      "channels": [22],
+      "behavior": "onOff",
+      "color": "#ffa31a",
+      "shapes": [
+        {
+          "view": "front",
+          "dot": [0.045, 0.33],
+          "r": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [0.6, 0.56, 0.985],
+          "r": 0.015
+        }
+      ]
+    },
+    {
+      "id": "repeaterL",
+      "name": "Left side repeater",
+      "channels": [21],
+      "behavior": "onOff",
+      "color": "#ffa31a",
+      "shapes": [
+        {
+          "view": "front",
+          "dot": [0.955, 0.33],
+          "r": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [0.6, 0.56, -0.985],
+          "r": 0.015
+        }
+      ]
+    },
+    {
+      "id": "turnRL",
+      "name": "Left rear turn",
+      "channels": [23],
+      "behavior": "onOff",
+      "color": "#ffa31a",
+      "shapes": [
+        {
+          "view": "rear",
+          "strip": [
+            [0.14, 0.23],
+            [0.28, 0.235]
+          ],
+          "w": 0.01
+        },
+        {
+          "view": "rear",
+          "dot": [0.26, 0.42],
+          "r": 0.006
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [-0.975, 0.62, -0.54],
+            [-0.965, 0.625, -0.702],
+            [-0.94, 0.62, -0.792]
+          ],
+          "r": 0.009
+        },
+        {
+          "point": [-0.985, 0.3, -0.63],
+          "r": 0.012
+        }
+      ]
+    },
+    {
+      "id": "turnRR",
+      "name": "Right rear turn",
+      "channels": [24],
+      "behavior": "onOff",
+      "color": "#ffa31a",
+      "shapes": [
+        {
+          "view": "rear",
+          "strip": [
+            [0.86, 0.23],
+            [0.72, 0.235]
+          ],
+          "w": 0.01
+        },
+        {
+          "view": "rear",
+          "dot": [0.74, 0.42],
+          "r": 0.006
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [-0.975, 0.62, 0.54],
+            [-0.965, 0.625, 0.702],
+            [-0.94, 0.62, 0.792]
+          ],
+          "r": 0.009
+        },
+        {
+          "point": [-0.985, 0.3, 0.63],
+          "r": 0.012
+        }
+      ]
+    },
+    {
+      "id": "tailL",
+      "name": "Left tail",
+      "channels": [26],
+      "behavior": "onOff",
+      "color": "#ff2a1a",
+      "shapes": [
+        {
+          "view": "rear",
+          "strip": [
+            [0.27, 0.215],
+            [0.15, 0.215],
+            [0.13, 0.25],
+            [0.15, 0.27],
+            [0.27, 0.265]
+          ],
+          "w": 0.009
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.2, 0.43],
+            [0.3, 0.43]
+          ],
+          "w": 0.006
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.7, 0.43],
+            [0.8, 0.43]
+          ],
+          "w": 0.006
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [-0.975, 0.6, -0.522],
+            [-0.965, 0.6, -0.72],
+            [-0.94, 0.6, -0.801],
+            [-0.94, 0.58, -0.801],
+            [-0.96, 0.57, -0.72],
+            [-0.975, 0.575, -0.54]
+          ],
+          "r": 0.008
+        },
+        {
+          "points": [
+            [-0.99, 0.3, -0.405],
+            [-0.99, 0.3, -0.585]
+          ],
+          "r": 0.006
+        }
+      ]
+    },
+    {
+      "id": "tailR",
+      "name": "Right tail",
+      "channels": [27],
+      "behavior": "onOff",
+      "color": "#ff2a1a",
+      "shapes": [
+        {
+          "view": "rear",
+          "strip": [
+            [0.73, 0.215],
+            [0.85, 0.215],
+            [0.87, 0.25],
+            [0.85, 0.27],
+            [0.73, 0.265]
+          ],
+          "w": 0.009
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.2, 0.43],
+            [0.3, 0.43]
+          ],
+          "w": 0.006
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.7, 0.43],
+            [0.8, 0.43]
+          ],
+          "w": 0.006
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [-0.975, 0.6, 0.522],
+            [-0.965, 0.6, 0.72],
+            [-0.94, 0.6, 0.801],
+            [-0.94, 0.58, 0.801],
+            [-0.96, 0.57, 0.72],
+            [-0.975, 0.575, 0.54]
+          ],
+          "r": 0.008
+        },
+        {
+          "points": [
+            [-0.99, 0.3, 0.405],
+            [-0.99, 0.3, 0.585]
+          ],
+          "r": 0.006
+        }
+      ]
+    },
+    {
+      "id": "brake",
+      "name": "Brake",
+      "channels": [25],
+      "behavior": "onOff",
+      "color": "#ff1a0d",
+      "shapes": [
+        {
+          "view": "rear",
+          "strip": [
+            [0.42, 0.11],
+            [0.58, 0.11]
+          ],
+          "w": 0.012
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.27, 0.215],
+            [0.15, 0.215],
+            [0.13, 0.25],
+            [0.15, 0.27],
+            [0.27, 0.265]
+          ],
+          "w": 0.011
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.73, 0.215],
+            [0.85, 0.215],
+            [0.87, 0.25],
+            [0.85, 0.27],
+            [0.73, 0.265]
+          ],
+          "w": 0.011
+        },
+        {
+          "view": "rear",
+          "strip": [
+            [0.42, 0.46],
+            [0.58, 0.46]
+          ],
+          "w": 0.005
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [-0.83, 0.8, -0.16],
+            [-0.83, 0.8, 0.16]
+          ],
+          "r": 0.014
+        }
+      ]
+    },
+    {
+      "id": "reverse",
+      "name": "Reverse",
+      "channels": [28],
+      "behavior": "onOff",
+      "color": "#ffffff",
+      "shapes": [
+        {
+          "view": "rear",
+          "dot": [0.33, 0.44],
+          "r": 0.016
+        },
+        {
+          "view": "rear",
+          "dot": [0.67, 0.44],
+          "r": 0.016
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [-0.99, 0.3, 0.32],
+          "r": 0.018
+        },
+        {
+          "point": [-0.99, 0.3, -0.32],
+          "r": 0.018
+        }
+      ]
+    },
+    {
+      "id": "rearFog",
+      "name": "Rear fog",
+      "channels": [29],
+      "behavior": "onOff",
+      "color": "#ff2a1a",
+      "shapes": [
+        {
+          "view": "rear",
+          "dot": [0.3, 0.44],
+          "r": 0.01
+        },
+        {
+          "view": "rear",
+          "dot": [0.7, 0.44],
+          "r": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "point": [-0.99, 0.3, 0.25],
+          "r": 0.012
+        },
+        {
+          "point": [-0.99, 0.3, -0.25],
+          "r": 0.012
+        }
+      ]
+    },
+    {
+      "id": "plate",
+      "name": "License plate",
+      "channels": [30],
+      "behavior": "onOff",
+      "color": "#f0f4ff",
+      "shapes": [
+        {
+          "view": "rear",
+          "rect": [0.44, 0.3, 0.12, 0.06]
+        }
+      ],
+      "shapes3d": [
+        {
+          "rect": [-0.996, 0.44, 0],
+          "w": 0.3,
+          "h": 0.09
+        }
+      ]
+    },
+    {
+      "id": "screen",
+      "name": "Center screen",
+      "channels": [176, 177, 178],
+      "behavior": "rgb",
+      "shapes": [
+        {
+          "view": "interior",
+          "rect": [0.42, 0.22, 0.16, 0.12]
+        }
+      ],
+      "shapes3d": [
+        {
+          "screen": [0.32, 0.66, 0.0],
+          "w": 0.38,
+          "h": 0.2,
+          "facing": "rear"
+        }
+      ]
+    },
+    {
+      "id": "accentFront",
+      "name": "Center accent (top of the U, across the dash)",
+      "channels": [185, 186, 187],
+      "behavior": "rgb",
+      "shapes": [
+        {
+          "view": "interior",
+          "strip": [
+            [0.33, 0.14],
+            [0.5, 0.12],
+            [0.67, 0.14]
+          ],
+          "w": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.42, 0.62, -0.6],
+            [0.44, 0.62, 0.0],
+            [0.42, 0.62, 0.6]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "accentLeftRear",
+      "name": "Left rear accent",
+      "channels": [179, 180, 181],
+      "behavior": "rgb",
+      "shapes": [
+        {
+          "view": "interior",
+          "strip": [
+            [0.22, 0.9],
+            [0.22, 0.62]
+          ],
+          "w": 0.01
+        }
+      ],
+      "notes": "Probe: lit the left rear door strip. Tesla's layout calls 179 'Right Rear RGB'; this car's interior names are mirrored.",
+      "shapes3d": [
+        {
+          "points": [
+            [-0.04, 0.6, -0.88],
+            [-0.3, 0.6, -0.86]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "accentLeftFront",
+      "name": "Left front accent",
+      "channels": [182, 183, 184],
+      "behavior": "rgb",
+      "notes": "Inferred: mirror of Tesla's 'Right Front RGB'; faint glow on the left headliner in the probe.",
+      "shapes": [
+        {
+          "view": "interior",
+          "strip": [
+            [0.22, 0.56],
+            [0.22, 0.3],
+            [0.28, 0.18]
+          ],
+          "w": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.4, 0.62, -0.75],
+            [0.2, 0.6, -0.86],
+            [0.02, 0.6, -0.88]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "accentRightFront",
+      "name": "Right front accent",
+      "channels": [188, 189, 190],
+      "behavior": "rgb",
+      "notes": "Inferred: mirror of Tesla's 'Left Front RGB'; glow near the right A-pillar in the probe.",
+      "shapes": [
+        {
+          "view": "interior",
+          "strip": [
+            [0.72, 0.18],
+            [0.78, 0.3],
+            [0.78, 0.56]
+          ],
+          "w": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [0.4, 0.62, 0.75],
+            [0.2, 0.6, 0.86],
+            [0.02, 0.6, 0.88]
+          ],
+          "r": 0.008
+        }
+      ]
+    },
+    {
+      "id": "accentRightRear",
+      "name": "Right rear accent",
+      "channels": [191, 192, 193],
+      "behavior": "rgb",
+      "notes": "Inferred: mirror of Tesla's 'Left Rear RGB'; out of view in the probe. Confirmed present by the owner.",
+      "shapes": [
+        {
+          "view": "interior",
+          "strip": [
+            [0.78, 0.62],
+            [0.78, 0.9]
+          ],
+          "w": 0.01
+        }
+      ],
+      "shapes3d": [
+        {
+          "points": [
+            [-0.04, 0.6, 0.88],
+            [-0.3, 0.6, 0.86]
+          ],
+          "r": 0.008
+        }
+      ]
+    }
+  ],
+  "absent": {
+    "channels": "5-6, 15-20, 47-174",
+    "notes": "No signature light, fogs, aux park, side markers, front or rear light bar, or offroad bar."
+  },
+  "unverified": [
+    {
+      "channels": "182-184, 188-193",
+      "name": "Interior side segments",
+      "reason": "Positions inferred by mirroring Tesla's names; only faint glows were in view. Check in the viewer against the car."
+    },
+    {
+      "channels": "35-41, 46",
+      "name": "Closures",
+      "reason": "Closures probe not filmed yet."
+    }
+  ],
+  "view3d": {
+    "frame": "x: -1 rear to +1 front; y: 0 ground to 1 roof; z: -1 car's left to +1 car's right",
+    "model": "workspace/models/model3-2027/scene.gltf",
+    "modelSource": {
+      "title": "2024 Tesla Model 3 + Interior",
+      "author": "tonielpro520",
+      "license": "CC BY 4.0",
+      "url": "https://sketchfab.com/3d-models/2024-tesla-model-3-interior-61ddcbdbd3854c239e0c95bf60b00022"
+    },
+    "fit": {
+      "rotateY": 0,
+      "flipFront": false
+    },
+    "spill": {
+      "headR": ["outerR", "innerR", "drlR"],
+      "headL": ["outerL", "innerL", "drlL"],
+      "tailR": ["tailR", "brake", "turnRR"],
+      "tailL": ["tailL", "brake", "turnRL"]
+    },
+    "modelParts": {
+      "note": "Model lamp pieces (connected parts of these materials) driven by show lights. Each rule picks the piece of that material whose center is nearest `near` (normalized frame). Lights with a piece are drawn on the model itself; the rest fall back to shapes3d. Optional `verts` prefers the piece with about that many vertices, for pieces that share a center. Mode `strip` also draws a glowing tube along the piece and a soft light that washes nearby trim (for thin ambient strips).",
+      "rules": [
+        {
+          "material": "Lights",
+          "near": [0.9, 0.44, 0.66],
+          "lights": ["turnFR"]
+        },
+        {
+          "material": "Lights",
+          "near": [0.9, 0.44, -0.66],
+          "lights": ["turnFL"]
+        },
+        {
+          "material": "Lights",
+          "near": [0.85, 0.47, 0.75],
+          "lights": ["drlR"],
+          "verts": 600
+        },
+        {
+          "material": "Lights",
+          "near": [0.85, 0.47, -0.75],
+          "lights": ["drlL"],
+          "verts": 600
+        },
+        {
+          "material": "Lights_Glo",
+          "near": [0.84, 0.47, 0.8],
+          "lights": ["drlR"]
+        },
+        {
+          "material": "Lights_Glo",
+          "near": [0.84, 0.47, -0.8],
+          "lights": ["drlL"]
+        },
+        {
+          "material": "Lights_Glo",
+          "near": [0.86, 0.47, 0.65],
+          "lights": ["innerR"]
+        },
+        {
+          "material": "Lights_Glo",
+          "near": [0.86, 0.47, -0.65],
+          "lights": ["innerL"]
+        },
+        {
+          "material": "Lights_Ref",
+          "near": [0.86, 0.47, 0.66],
+          "lights": ["innerR"]
+        },
+        {
+          "material": "Lights_Ref",
+          "near": [0.86, 0.47, -0.66],
+          "lights": ["innerL"]
+        },
+        {
+          "material": "Lights_Glo",
+          "near": [0.79, 0.49, 0.83],
+          "lights": ["outerR"]
+        },
+        {
+          "material": "Lights_Glo",
+          "near": [0.79, 0.49, -0.83],
+          "lights": ["outerL"]
+        },
+        {
+          "material": "Lights_Ref",
+          "near": [0.79, 0.49, 0.83],
+          "lights": ["outerR"]
+        },
+        {
+          "material": "Lights_Ref",
+          "near": [0.79, 0.49, -0.83],
+          "lights": ["outerL"]
+        },
+        {
+          "material": "Lights",
+          "near": [0.45, 0.51, 0.97],
+          "lights": ["repeaterR"]
+        },
+        {
+          "material": "Lights",
+          "near": [0.45, 0.51, -0.97],
+          "lights": ["repeaterL"]
+        },
+        {
+          "material": "EXT_PLATE",
+          "near": [-0.96, 0.54, 0],
+          "lights": ["plate"],
+          "mode": "illuminate"
+        },
+        {
+          "material": "INT_Screen",
+          "near": [0.07, 0.55, 0],
+          "lights": ["screen"]
+        },
+        {
+          "material": "INT_LED",
+          "near": [0.39, 0.64, 0],
+          "lights": ["accentFront"],
+          "mode": "strip"
+        },
+        {
+          "material": "INT_LED",
+          "near": [0.44, 0.65, 0.07],
+          "lights": ["accentFront"],
+          "mode": "strip"
+        },
+        {
+          "material": "INT_LED",
+          "near": [0.16, 0.63, 0.77],
+          "lights": ["accentRightFront"],
+          "mode": "strip"
+        },
+        {
+          "material": "INT_LED",
+          "near": [0.16, 0.63, -0.77],
+          "lights": ["accentLeftFront"],
+          "mode": "strip"
+        },
+        {
+          "material": "INT_LED",
+          "near": [-0.28, 0.66, 0.76],
+          "lights": ["accentRightRear"],
+          "mode": "strip"
+        },
+        {
+          "material": "INT_LED",
+          "near": [-0.28, 0.66, -0.76],
+          "lights": ["accentLeftRear"],
+          "mode": "strip"
+        },
+        {
+          "material": "Lights",
+          "near": [-0.9, 0.62, 0.68],
+          "lights": ["tailR", "brake", "turnRR"],
+          "verts": 435
+        },
+        {
+          "material": "Lights",
+          "near": [-0.9, 0.62, -0.68],
+          "lights": ["tailL", "brake", "turnRL"],
+          "verts": 435
+        },
+        {
+          "material": "Lights",
+          "near": [-0.9, 0.63, 0.66],
+          "lights": ["tailR", "brake", "turnRR"],
+          "verts": 52
+        },
+        {
+          "material": "Lights",
+          "near": [-0.9, 0.63, -0.66],
+          "lights": ["tailL", "brake", "turnRL"],
+          "verts": 52
+        },
+        {
+          "material": "Taillight_Detail",
+          "near": [-0.9, 0.62, 0.68],
+          "lights": ["tailR", "brake", "turnRR"]
+        },
+        {
+          "material": "Taillight_Detail",
+          "near": [-0.9, 0.62, -0.68],
+          "lights": ["tailL", "brake", "turnRL"]
+        },
+        {
+          "material": "EXT_Taillight_Glass",
+          "near": [-0.84, 0.62, 0.84],
+          "lights": ["tailR", "brake", "turnRR"]
+        },
+        {
+          "material": "EXT_Taillight_Glass",
+          "near": [-0.84, 0.62, -0.84],
+          "lights": ["tailL", "brake", "turnRL"]
+        },
+        {
+          "material": "Taillight_Detail",
+          "near": [-0.96, 0.27, 0.49],
+          "lights": ["brake", "rearFog", "turnRL"]
+        },
+        {
+          "material": "Taillight_Detail",
+          "near": [-0.96, 0.27, -0.49],
+          "lights": ["brake", "rearFog", "turnRR"]
+        },
+        {
+          "material": "Lights",
+          "near": [-0.96, 0.26, 0.53],
+          "lights": ["reverse"]
+        },
+        {
+          "material": "Lights",
+          "near": [-0.96, 0.26, -0.53],
+          "lights": ["reverse"]
+        },
+        {
+          "material": "Taillight_Detail",
+          "near": [-0.81, 0.79, 0],
+          "lights": ["brake"]
+        }
+      ]
+    },
+    "overlayAlways": ["brake"],
+    "closureParts": {
+      "note": "Model pieces (any material) whose center lies within `radius` of `near` (normalized frame) move with the closure. Mirrors rotate about a vertical hinge; windows slide down; the charge port is drawn as an overlay flap with an LED.",
+      "parts": [
+        {
+          "id": "mirrorL",
+          "near": [0.27, 0.69, -1.02],
+          "radius": 0.07,
+          "hinge": [0.33, -0.93],
+          "foldDeg": 65
+        },
+        {
+          "id": "mirrorR",
+          "near": [0.27, 0.69, 1.02],
+          "radius": 0.07,
+          "hinge": [0.33, 0.93],
+          "foldDeg": -65
+        },
+        {
+          "id": "windowLF",
+          "near": [0.09, 0.78, -0.78],
+          "radius": 0.06,
+          "drop": 0.42
+        },
+        {
+          "id": "windowRF",
+          "near": [0.09, 0.78, 0.78],
+          "radius": 0.06,
+          "drop": 0.42
+        },
+        {
+          "id": "windowLR",
+          "near": [-0.32, 0.8, -0.76],
+          "radius": 0.06,
+          "drop": 0.36
+        },
+        {
+          "id": "windowRR",
+          "near": [-0.32, 0.8, 0.76],
+          "radius": 0.06,
+          "drop": 0.36
+        },
+        {
+          "id": "chargePort",
+          "overlay": {
+            "center": [-0.8, 0.6, -0.975],
+            "w": 0.11,
+            "h": 0.09
+          }
+        },
+        {
+          "id": "trunk",
+          "box": {
+            "x": [-1.08, -0.74],
+            "y": [0.43, 0.86],
+            "z": [-0.6, 0.6]
+          },
+          "hinge": [-0.75, 0.84],
+          "openDeg": -68,
+          "note": "The model has no separate lid: triangles of any material inside this box (behind the rear glass, between the outer tail lamps, above the bumper) are cut out and hinged at the base of the rear window."
+        }
+      ]
+    }
+  },
+  "closures": [
+    {
+      "id": "mirrorL",
+      "channel": 35,
+      "kind": "mirror",
+      "openMs": 2000,
+      "closeMs": 2000,
+      "dance": false
+    },
+    {
+      "id": "mirrorR",
+      "channel": 36,
+      "kind": "mirror",
+      "openMs": 2000,
+      "closeMs": 2000,
+      "dance": false
+    },
+    {
+      "id": "windowLF",
+      "channel": 37,
+      "kind": "window",
+      "openMs": 4000,
+      "closeMs": 4000,
+      "dance": true
+    },
+    {
+      "id": "windowLR",
+      "channel": 38,
+      "kind": "window",
+      "openMs": 4000,
+      "closeMs": 4000,
+      "dance": true
+    },
+    {
+      "id": "windowRF",
+      "channel": 39,
+      "kind": "window",
+      "openMs": 4000,
+      "closeMs": 4000,
+      "dance": true
+    },
+    {
+      "id": "windowRR",
+      "channel": 40,
+      "kind": "window",
+      "openMs": 4000,
+      "closeMs": 4000,
+      "dance": true
+    },
+    {
+      "id": "trunk",
+      "channel": 41,
+      "kind": "liftgate",
+      "openMs": 14000,
+      "closeMs": 4000,
+      "dance": true
+    },
+    {
+      "id": "chargePort",
+      "channel": 46,
+      "kind": "chargePort",
+      "openMs": 2000,
+      "closeMs": 2000,
+      "dance": true
+    }
+  ],
+  "closuresNote": "Timings from Tesla's README; not yet verified on this car (the closures probe has not been filmed). Position 0 = closed (mirror unfolded counts as open)."
+}

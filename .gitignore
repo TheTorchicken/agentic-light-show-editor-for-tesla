@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.DS_Store
+._*
+
+# Personal working files: songs, renders, review notes
+workspace/
+
+# Other creators' shows, used only for local analysis. Never commit.
+reference-shows/
+
+# Audio never ships in the repo (copyright). Generated probe audio is rebuilt from source.
+*.wav
+*.mp3
+*.aiff
+build/
+
+# Python environments
+.venv/
+__pycache__/
+

@@ -1,0 +1,7 @@
+# Audio analysis for Agentic Light Show Editor for Tesla. Python 3.11 or newer.
+librosa>=0.11
+soundfile>=0.12
+numpy>=2.0
+scipy>=1.16
+demucs>=4.0
+matplotlib>=3.8

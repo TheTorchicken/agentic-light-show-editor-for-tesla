@@ -1,0 +1,11 @@
+{
+  "title": "Alexander Hamilton",
+  "artist": "Hamilton (Original Broadway Cast)",
+  "profile": "profiles/model3-2027.json",
+  "audio": "workspace/alexander-hamilton/AlexanderHamilton.wav",
+  "analysis": "workspace/alexander-hamilton/analysis.json",
+  "theme": {
+    "colors": ["#ffb81c", "#ffffff"],
+    "note": "Gold and black. Black is darkness, so the interior uses gold and white."
+  }
+}

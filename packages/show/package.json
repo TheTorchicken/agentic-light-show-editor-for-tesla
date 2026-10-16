@@ -1,0 +1,13 @@
+{
+  "name": "@lightshow/show",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@lightshow/core": "*"
+  }
+}

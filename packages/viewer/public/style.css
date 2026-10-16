@@ -1,0 +1,65 @@
+:root {
+  --bg: #0b0c0f;
+  --panel: #14161b;
+  --line: #262a33;
+  --text: #e8e9ec;
+  --muted: #8a8f9c;
+  --accent: #ffb238;
+  --select: #4cc3ff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+button, select { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; font: inherit; cursor: pointer; }
+button:hover { border-color: var(--muted); }
+button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--select); outline-offset: 1px; }
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.title { display: flex; gap: 10px; align-items: baseline; font-weight: 600; font-size: 16px; }
+.title .muted { font-weight: 400; font-size: 13px; }
+.transport { display: flex; align-items: center; gap: 8px; }
+#play { width: 44px; }
+#clock { min-width: 84px; text-align: right; font-size: 15px; }
+
+main { display: grid; grid-template-columns: 1fr 300px; grid-template-rows: auto 1fr; height: calc(100% - 55px); }
+.stage { padding: 8px 16px 0; min-width: 0; }
+#car, #car3d { width: 100%; max-width: calc(52vh * 1.75); margin: 0 auto; aspect-ratio: 1.75 / 1; display: block; background: #07080a; border-radius: 8px; }
+.hint { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+
+aside { grid-row: 1 / span 2; grid-column: 2; border-left: 1px solid var(--line); padding: 12px 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+aside h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 8px 0 0; }
+.selection { display: flex; flex-wrap: wrap; gap: 4px; min-height: 22px; }
+.chip { background: #10324a; color: #bfe8ff; border-radius: 4px; padding: 1px 6px; font-size: 12px; }
+textarea { width: 100%; resize: vertical; background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 8px; font: inherit; }
+#notes { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+#notes li { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px; cursor: pointer; }
+#notes li:hover { border-color: var(--muted); }
+#notes .when { color: var(--accent); font-size: 12px; }
+#notes .lights { color: var(--muted); font-size: 12px; }
+#notes .del { float: right; padding: 0 6px; border: none; background: none; color: var(--muted); }
+
+.timeline { grid-column: 1; padding: 8px 16px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0; min-height: 0; }
+#overview { width: 100%; height: 64px; display: block; cursor: pointer; }
+#lanes { width: 100%; flex: 1; min-height: 200px; display: block; cursor: pointer; }
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: 1fr; grid-template-rows: auto auto auto; height: auto; }
+  aside { grid-row: auto; grid-column: 1; order: 3; border-left: none; border-top: 1px solid var(--line); }
+  .timeline { order: 2; }
+  #lanes { height: 420px; flex: none; }
+}
+
+.back { color: var(--muted); text-decoration: none; margin-right: 4px; }
+.back:hover { color: var(--text); }
+.viewbar { display: flex; justify-content: flex-start; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { border: none; border-radius: 0; padding: 4px 10px; font-size: 12px; background: transparent; color: var(--muted); }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button.on { background: #1b2230; color: var(--text); }
+canvas[hidden] { display: none !important; }
+#car3d { cursor: grab; }
+header .title { min-width: 0; flex: 1; }
+header .title #title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+header .title #carName { white-space: nowrap; }
+.viewbar .cams { margin-left: auto; }
