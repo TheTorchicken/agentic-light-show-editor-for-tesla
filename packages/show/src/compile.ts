@@ -62,6 +62,27 @@ export async function compile(showDir: string, root = process.cwd()) {
   const report = validate(seq);
   const sim = simulate(seq, profile);
   const closureSim = simulateClosures(seq, profile);
+  // Music only plays through the cabin speakers: with the windows up, the crowd outside
+  // can barely hear it. Windows should be down whenever music plays (a dance keeps them
+  // mostly open), closing only in real silence or after the music ends. The first 5 s are
+  // allowed for lowering them.
+  const music = (t: number) => {
+    const c = analysis.energy, i = Math.round(t / analysis.curveStep), w = Math.round(0.5 / analysis.curveStep);
+    let sum = 0, n = 0;
+    for (let k = Math.max(0, i - w); k <= Math.min(c.length - 1, i + w); k++) { sum += c[k]; n++; }
+    return n ? sum / n : 0;
+  };
+  const windows = closureSim.filter((c) => profile.closures?.find((k) => k.id === c.id)?.kind === "window");
+  if (windows.some((w) => w.position.some((v) => v > 0))) {
+    let muffled = 0;
+    for (let f = Math.round(5000 / seq.stepMs); f < windows[0].position.length; f++) {
+      const t = (f * seq.stepMs) / 1000;
+      if (music(t) > 0.08 && windows.some((w) => w.position[f] < 0.5)) muffled++;
+    }
+    const secs = (muffled * seq.stepMs) / 1000;
+    if (secs > 1.5) show.warnings.push(`Windows are mostly up for ${secs.toFixed(1)} s while music plays; the music only comes out of the cabin speakers, so the crowd can't hear it. Lower them at the start, keep them down (dance for motion), and close only in silence or after the music ends.`);
+  }
+
   // A show should end the way the car started: everything closed, mirrors unfolded.
   for (const c of closureSim) {
     const kind = profile.closures?.find((k) => k.id === c.id)?.kind;

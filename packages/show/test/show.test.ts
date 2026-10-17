@@ -145,3 +145,15 @@ test("sweep bounces along an ordered list", () => {
   const lit = (t: number) => order.filter((id) => sim.find((x) => x.id === id)!.level[s.frame(t + 0.02)] > 0.5);
   assert.deepEqual([1, 1.5, 2, 2.5, 3].map((t) => lit(t)[0]), ["tailL", "brake", "tailR", "brake", "tailL"]);
 });
+
+test("repeated window dances don't drift the glass up", async () => {
+  const { simulateClosures } = await import("../src/index.ts");
+  const s = new Show(profile, analysis, 30);
+  s.closure(37, 0.1, "open");
+  s.closure(37, 5, "dance", 6.3);
+  s.closure(37, 8, "dance", 9.7);
+  s.closure(37, 12, "dance", 13.1);
+  const w = simulateClosures(s.toSequence(), profile).find((c) => c.id === "windowLF")!;
+  const after = Array.from(w.position.slice(s.frame(5), s.frame(20)));
+  assert.ok(Math.min(...after) >= 0.64, `stays at least ~2/3 open (min ${Math.min(...after).toFixed(2)})`);
+});

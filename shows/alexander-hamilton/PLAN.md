@@ -82,21 +82,28 @@ roll call, the finale, the last hit) comes after a moment of darkness.
 
 ## Dance moves (closures, unverified on this car)
 
+The music only plays from the cabin speakers, so the windows go down at the start and stay
+down while music plays; they move by dancing (a partial swing up and back), never by closing.
+
 | Time | Move | Why |
 |---|---|---|
+| 0:00 | All four windows lower (~4 s) | Let the song out for the crowd |
 | 2:14.8 | Mirrors fold | The drop |
 | 2:44.9 → 2:58.9 | Trunk opens (14 s) | Rises through groove B, fully up at the 2:59 peak |
 | 2:58.9-3:00.7 | All four windows dance | The peak bar |
-| 3:00.7 / 3:01.2 | Front, then rear windows lower (~4 s) | The company enters; their voices pour out |
-| 3:00.7 | Charge port opens | |
+| 3:00.7 | Charge port opens | The company enters |
 | 3:14.9-3:24.9 | Charge port dances (10 s) | Pumping bass |
-| 3:29.0 | Windows rise; 3:29.3 charge port closes | Strip-down; shut before the roll call |
+| 3:29.3 | Charge port closes | Strip-down |
 | 3:32.5 | Mirrors unfold | Roll call |
-| 3:46.4 | Mirrors fold; windows dance to 3:49.5 | Finale |
-| 3:49.5 | Windows close and trunk closes (4 s each) | Closed by the last hit at 3:53.4 |
+| 3:33.1-3:34.3 | Left windows dance | Voice 1 owns the left side |
+| 3:36.0-3:37.2 | Right windows dance | Voice 2 owns the right side |
+| 3:46.4-3:48.7 | Mirrors fold; all windows dance | Finale |
+| 3:48.7 | Windows back fully down | Undo the dance's partial swing |
+| 3:49.5 | Trunk closes (4 s) | Shut for the last hit at 3:53.4 |
+| 3:52.8 | Windows close (4 s) | Half up only after the music ends (~3:54.3), shut as the audio ends |
 | 3:53.5 | Mirrors unfold (~2 s) | Final image; the car ends closed, mirrors out |
 
-Counts: windows 5 commands each (limit 6), trunk 2 (6), mirrors 4 each (20), charge port 3 (3).
-Dancing: 4 windows × 4.75 s + charge port 10 s ≈ 29 s.
+Counts: windows 6 commands each (limit 6), trunk 2 (6), mirrors 4 each (20), charge port 3 (3).
+Dancing per window 5.2 s; with the charge port, about 31 s if the four windows count separately.
 
 DRL strips are gestures, not a bed: every DRL use is a phrase fade, an entrance or a hit (duty ~26%, held only through the finale bars). Beds come from the screen.

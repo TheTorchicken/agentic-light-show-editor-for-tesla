@@ -43,6 +43,8 @@ const WIN_REAR = [38, 40];
 const WINDOWS = [...WIN_FRONT, ...WIN_REAR];
 const TRUNK = 41;
 const CHARGE_PORT = 46;
+/** One full window-dance swing (down → partway up → down) in the simulator. */
+const SWING = 2.2;
 
 // No theme was given. Sea and sky: ocean blue while the music waits, open-sky cyan for
 // flight, brass gold, cloud white for the peaks, twilight indigo for the hushes, sunset.
@@ -528,11 +530,18 @@ export default function testDrive(s: Show) {
 /**
  * Dance moves, unverified on this car. Each starts early enough that the motion lands
  * on its moment (mirrors ~2 s, windows ~4 s, trunk 14 s open / 4 s close, port ~2 s).
- * Counts: mirrors 12 each (limit 20), front windows 6 (6), rear windows 5 (6),
- * trunk 2 (6), charge port 3 (3). Dancing: 4 x 3 s + 4 x 2.25 s + 7.4 s = 28 s,
- * split across three moments.
+ * Counts: mirrors 12 each (limit 20), windows 5 each (6), trunk 2 (6), charge port 3 (3).
+ * Dancing: 2.2 s swings on 12 window-moments (front 3, rear 3, x2 windows each) = 26.4 s,
+ * plus the charge port 4 s = 30.4 s.
  */
 function danceMoves(s: Show) {
+  // Windows: all four down at the start and kept down so the crowd hears the cabin
+  // speakers. They move only by dancing: one full 2.2 s swing up and back on the big
+  // moments, so each dance ends down again. Up only after the music has ended.
+  s.closure(WINDOWS, 0.0, "open");
+  s.closure(WIN_FRONT, T.leap, "dance", T.leap + SWING);
+  s.closure(WIN_REAR, T.peak2, "dance", T.peak2 + SWING);
+  s.closure(WINDOWS, 152.5, "close");
   // Ignition bow: mirrors fold onto the first drum hit, open as the choir rises.
   s.closure(MIRRORS, 0.0, "close");
   s.closure(MIRRORS, 28.9, "open");
@@ -541,27 +550,23 @@ function danceMoves(s: Show) {
   s.closure(MIRRORS, T.brk, "open");
   // The trunk rises through the duel, the hush and takeoff: fully up for the climax.
   s.closure(TRUNK, 76.0, "open");
-  // Front windows drop through takeoff; mirrors nod left then right into the climax.
-  s.closure(WIN_FRONT, 86.0, "open");
+  // Mirrors nod left then right into the climax.
   s.closure(MIRROR_L, 87.95, "close");
   s.closure(MIRROR_R, 88.45, "close");
-  // Climax: all four windows shimmy (fronts from open, rears from closed), then close.
-  s.closure(WINDOWS, 90.0, "dance", 93.0);
-  s.closure(WINDOWS, 93.05, "close");
+  // Climax: all four windows swing up and back down.
+  s.closure(WINDOWS, T.climax, "dance", T.climax + SWING);
   s.closure(MIRRORS, T.sea, "open");
   // Second peak: mirrors fold and the charge port opens, both landing on 1:53.2.
   s.closure(MIRRORS, T.peak2 - 2.0, "close");
   s.closure(CHARGE_PORT, T.peak2 - 2.0, "open");
   s.closure(MIRRORS, 114.5, "open");
-  // All four windows drop for the grand theme; the port sparkles through its first half.
-  s.closure(WINDOWS, 118.6, "open");
-  s.closure(CHARGE_PORT, T.grand, "dance", 130.0);
+  // The port sparkles through the grand theme's first phrases.
+  s.closure(CHARGE_PORT, T.grand, "dance", 126.6);
   s.closure(CHARGE_PORT, 136.0, "close");
-  // Last crescendo: mirrors fold onto 2:21.6, windows shimmy from open.
+  // Last crescendo: mirrors fold onto 2:21.6, all four windows swing.
   s.closure(MIRRORS, 139.6, "close");
-  s.closure(WINDOWS, T.crescendo, "dance", T.cut);
-  // The orchestra stops: the car folds itself in.
-  s.closure(WINDOWS, 142.4, "close");
+  s.closure(WINDOWS, T.crescendo, "dance", T.crescendo + SWING);
+  // The orchestra stops: trunk down, mirrors out.
   s.closure(TRUNK, 142.4, "close");
   s.closure(MIRRORS, 142.4, "open");
   // Final hit: one last bow, then mirrors out for the fade.

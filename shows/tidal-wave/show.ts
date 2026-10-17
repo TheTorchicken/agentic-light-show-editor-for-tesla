@@ -70,6 +70,7 @@ const DEFAULT_PALETTE: Palette = {
 };
 
 export default function tidalWave(s: Show) {
+  windows(s);
   const P = s.palette(DEFAULT_PALETTE);
   const CY = P.pulse; // cyan: the lead
   const PU = P.alt; // purple: the answer
@@ -295,7 +296,6 @@ export default function tidalWave(s: Show) {
     accel(a, b, 320, 50, 0.85, (t, i, p) => s.pulse(SCREEN, [t], i % 2 ? CY : PU, Math.max(30, p * 0.5), dim(PU, 0.2)));
   };
   riser(36.96);
-  s.closure(WINDOWS, 37.1, "open");
 
   // Pre-drop hit (38.56 / 102.56): everything snaps on, then darkness until the drop.
   const crash = (t: number, flickers: number[], darkFrom: number, drop: number) => {
@@ -374,7 +374,6 @@ export default function tidalWave(s: Show) {
     });
   };
   s.closure(MIRRORS, 64.16, "open");
-  s.closure(WINDOWS, 64.16, "close"); // windows rise through the breakdown
   s.on([...OUTER, "brake"], 64.16, 64.3);
   s.fadeIn(INNER, 64.16, 500, 64.4).fadeOut(INNER, 64.4, 2000);
   halfTime(64.16, 72.16, 3);
@@ -405,8 +404,6 @@ export default function tidalWave(s: Show) {
   verse(76.96, 89.76, PU, CY, true);
   build(89.76, 100.96, PU, CY, -1);
   riser(100.96);
-  s.closure(WINDOWS, 101.1, "open"); // down again for drop 2
-  s.closure(WINDOWS, 129.0, "close"); // up in the break, closed for the climax shimmy
   crash(102.56, [102.88, 103.15], 103.36, 105.14);
 
   // A cappella 103.36-105.14: only the voice. DRL and screen follow it, then black.
@@ -481,9 +478,7 @@ export default function tidalWave(s: Show) {
   s.closure(TRUNK, 142.96, "open");
   // Climax: charge port opens, then dances; windows shimmy for two bars.
   s.closure(CHARGE_PORT, 155.0, "open");
-  s.closure(CHARGE_PORT, 156.96, "dance", 163.36);
-  s.closure(WINDOWS, 156.96, "dance", 160.16);
-  s.closure(WINDOWS, 160.2, "close"); // a dance leaves the glass mid-swing; shut them again
+  s.closure(CHARGE_PORT, 156.96, "dance", 161.76);
   s.on([...OUTER, "brake", "reverse", ...TAILS, ...TURN_R, ...REPEATERS], 131.33, 131.5);
   s.hit([...INNER, ...DRL, ...TURN_F], 131.33, 200, 1000);
   s.color(INTERIOR, 131.33, 131.5, CY);
@@ -580,4 +575,16 @@ export default function tidalWave(s: Show) {
 function mixRGB(a: RGB, b: RGB, k: number): RGB {
   const t = Math.max(0, Math.min(1, k));
   return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+}
+
+/** Windows: down from the start so the crowd hears the cabin speakers; they move only by
+ *  dancing (swing partway up and back) at the peaks, and close after the music ends. */
+function windows(s: Show) {
+  const FRONT_W = [37, 39], REAR_W = [38, 40];
+  s.closure(WINDOWS, 0, "open");
+  s.closure(FRONT_W, 41.13, "dance", 42.73); // drop 1 slam: front glass shimmies
+  s.closure(REAR_W, 105.76, "dance", 107.36); // drop 2 slam: rear glass answers
+  s.closure(WINDOWS, 131.33, "dance", 132.93); // drop 3 slam: all four
+  s.closure(WINDOWS, 156.96, "dance", 160.16); // climax: all four, two bars
+  s.closure(WINDOWS, 180.2, "close"); // music ends ~179.5; up by ~184.2, before the audio ends
 }

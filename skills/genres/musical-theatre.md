@@ -13,8 +13,8 @@ ensemble. Learned from Alexander Hamilton.
    points, the moment the title is sung, the roll call) and give each its own gesture.
    Loudness alone flattens a story.
 3. **The ensemble is everything.** When the full company sings, the whole car moves: sides
-   swap on the kick, both ends strobe, the screen goes full, the windows come down so the
-   voices pour out. Save this; it should be the only time the car looks like this.
+   swap on the kick, both ends strobe, the screen goes full, the windows dance. (They are
+   down for the whole song: the music only plays from the cabin.) Save this; it should be the only time the car looks like this.
 4. **Darkness before entrances.** A character's big entrance lands better after a beat of
    black.
 5. **The finale is the biggest moment of the show**, then end on one clean final image.

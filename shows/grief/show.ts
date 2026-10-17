@@ -236,26 +236,26 @@ export default function grief(s: Show) {
 }
 
 /**
- * Dance moves. Each starts early enough that the motion lands on its moment
- * (windows ~4 s, trunk 14 s to open, 4 s to close). Command counts: front windows
- * 6 each, rear windows 2 each, trunk 2 (limits 6/6/6).
+ * Dance moves. The music only plays from the cabin speakers, so all four windows go
+ * down at the start and stay down; they move by dancing (swinging partway up and back)
+ * and close only after the music ends. Moves start early enough to land on their moment
+ * (trunk 14 s to open, 4 s to close). Command counts: each window 5, trunk 2 (limits 6).
  */
 function dancePart(s: Show) {
-  // Drop 1: front windows are fully down as the drop hits, so the music pours out.
-  s.closure(FRONT_WINDOWS, 43.0, "open");
-  s.closure(FRONT_WINDOWS, 52.79, "dance", 58.44); // shimmy through the stutters
-  s.closure(FRONT_WINDOWS, 72.32, "close"); // the half-time calm closes them
-  // Drop 2: the rear windows join, landing on 1:23.6.
-  s.closure(REAR_WINDOWS, 79.6, "open");
-  // Climax: front windows down again and a second shimmy beside the charge port dance.
-  s.closure(FRONT_WINDOWS, 124.8, "open");
-  s.closure(FRONT_WINDOWS, 128.81, "dance", 132.8);
-  // Breakdown: everything closes.
-  s.closure([...FRONT_WINDOWS, ...REAR_WINDOWS], 142.97, "close");
+  const ALL_WINDOWS = [...FRONT_WINDOWS, ...REAR_WINDOWS];
+  s.closure(ALL_WINDOWS, 0.1, "open");
+  // Drop 1: the front windows shimmy through the stutters.
+  s.closure(FRONT_WINDOWS, 52.79, "dance", 58.44);
+  // Drop 2: the rear windows answer.
+  s.closure(REAR_WINDOWS, 83.63, "dance", 88.5);
+  // Climax: all four dance beside the charge port.
+  s.closure(ALL_WINDOWS, 128.81, "dance", 133.8);
   // Final build: the trunk rises over 14 s and is fully up for the vocal outro,
   // then closes during the last fade.
   s.closure(TRUNK, 151.43, "open");
   s.closure(TRUNK, 168.9, "close");
+  // The music has ended (2:51): now the windows can close.
+  s.closure(ALL_WINDOWS, 171.5, "close");
 }
 
 /** The screen's own part: the color story and the biggest rhythmic moments. */

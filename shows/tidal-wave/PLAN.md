@@ -68,18 +68,18 @@ valleys; a quiet ending. The critique's correlation drops because the analyzer r
 
 | Time | Move |
 |---|---|
-| 37.1 | All four windows down (~4 s), open as drop 1 lands at 41.1 |
-| 41.13 | Mirrors fold on the drop |
-| 64.16 | Mirrors unfold, windows up through the breakdown |
-| 101.1 | Windows down again for drop 2 (105.1) |
-| 129.0 | Windows up in the break |
-| 131.33 | Mirrors fold on drop 3 |
+| 0.0 | All four windows down (~4 s); they stay down so the crowd hears the cabin speakers |
+| 41.13 | Mirrors fold on the drop; front windows dance to 42.73 |
+| 64.16 | Mirrors unfold |
+| 105.76-107.36 | Rear windows dance (drop 2 slam) |
+| 131.33 | Mirrors fold on drop 3; all four windows dance to 132.93 |
 | 142.96 | Trunk opens (14 s), fully up at the climax 156.96 |
 | 155.0 | Charge port opens |
-| 156.96-160.16 | Window dance, all four, 2 bars |
-| 156.96-163.36 | Charge port dance (4 bars) |
+| 156.96-160.16 | All four windows dance (2 bars, the climax) |
+| 156.96-161.76 | Charge port dance (3 bars) |
 | 166.56 | Mirrors unfold, charge port closes |
 | 174.56 | Trunk closes (4 s), shut by 178.6 before the final fade |
+| 180.2 | Windows close after the music ends (~4 s, before the audio ends at 184.5) |
 
-Per window: 2 open, 2 close, 1 dance (limit 6). Trunk 2, charge port 3, mirrors 4. Dancing:
-4 x 3.2 s windows + 6.4 s port = 19.2 s. Ends with everything closed and mirrors unfolded.
+Per window: 1 open, 2-3 dances, 1 close (limit 6). Trunk 2, charge port 3, mirrors 4. Dancing:
+2x1.6 + 2x1.6 + 4x1.6 + 4x3.2 windows + 4.8 port = 30.4 s. Ends with everything closed and mirrors unfolded.

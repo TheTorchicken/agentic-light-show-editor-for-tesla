@@ -97,8 +97,11 @@ export function simulateClosures(seq: Sequence, profile: Profile): SimClosure[] 
         const swing = 0.5 - 0.5 * Math.cos((danceT / 1100) * Math.PI);
         // Windows swing partway down and back; the trunk bobs near fully open; the
         // charge port door stays open and only its LED flashes rainbow (Tesla README).
+        // Tesla: a dance oscillates between two predefined positions. For a window that is
+        // mostly open, between fully open and about two thirds open; mostly closed, between
+        // closed and about a third open. Fixed positions, so repeated dances don't drift.
         pos = c.kind === "window"
-          ? danceFrom < 0.35 ? danceFrom + 0.35 * swing : danceFrom - 0.35 * swing
+          ? danceFrom >= 0.5 ? 1 - 0.35 * swing : 0.35 * swing
           : c.kind === "chargePort" ? 1 : 1 - 0.3 * swing;
         dancing[f] = 1;
         target = null;

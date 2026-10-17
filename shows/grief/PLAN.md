@@ -44,16 +44,19 @@ second peak at the end of drop 2, a collapse, one more climb, then a quiet, warm
 
 ## Dance moves
 
+The music only plays from the cabin speakers, so the windows stay down the whole song and
+move by dancing; they close only after the music ends.
+
 | Time | Move |
 |---|---|
-| 0:43 → 0:47 | Front windows down, landing on drop 1 |
+| 0:00 → 0:04 | All four windows down |
 | 0:47.6 | Mirrors fold |
 | 0:52.8-0:58.4 | Front windows shimmy through the stutters |
-| 1:12 | Front windows up for the half-time calm |
-| 1:19.6 → 1:23.6 | Rear windows down, landing on drop 2; mirrors unfold |
-| 2:04.8 → 2:08.8 | Front windows down for the climax, shimmy 2:08.8-2:12.8 |
+| 1:23.6-1:28.5 | Rear windows dance into drop 2; mirrors unfold |
 | 2:06-2:20 | Charge port opens, dances, closes |
-| 2:23 | Breakdown: all windows up, mirrors fold |
+| 2:08.8-2:13.8 | All four windows dance in the climax |
+| 2:23 | Breakdown: mirrors fold |
 | 2:31 → 2:45 | Trunk rises through the final build, fully up for the outro |
 | 2:47 | Mirrors unfold with the voice |
 | 2:49 → 2:53 | Trunk closes in the last fade |
+| 2:51.5 → 2:55.5 | Music over: windows close |

@@ -17,8 +17,8 @@ steady kit. Learned from Grief and Tidal Wave.
 
 1. **The drop is the show.** Make the last bar before it the darkest moment in the song
    (black, or a single accelerating strobe), then hit with everything: main beams, brake,
-   reverse, screen at full, every accent, and a closure move landing on it (windows down so
-   the music pours out, mirrors folding).
+   reverse, screen at full, every accent, and a closure move landing on it (a window dance,
+   mirrors folding). Windows are already down: the music only plays from the cabin.
 2. **Builds accelerate.** Risers map to strobes that speed up (300 ms → 60 ms periods) and to
    the screen and accents brightening. Ping-pong front and rear, or left and right, so the
    build has motion, not just speed.

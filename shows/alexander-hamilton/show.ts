@@ -583,19 +583,21 @@ export default function alexanderHamilton(s: Show) {
 // Not yet verified on this car (closures probe not filmed).
 // =========================================================================
 function danceMoves(s: Show) {
+  // The music only plays from the cabin, so the windows go down at the start and stay down.
+  s.closure(WINDOWS, 0, "open");
   // The trunk rises through groove B so it is fully up (14 s) at the 2:59 peak.
   s.closure(TRUNK, T.peak - 14, "open");
-  // The peak: a two-bar window shimmy from closed.
+  // The peak: all four windows swing partway up and back for the bar.
   s.closure(WINDOWS, T.peak, "dance", T.c1 - 0.05);
-  // The company enters: windows lower, fronts first then rears a beat later,
-  // so the ensemble's voices pour out of the cabin.
-  s.closure(WIN_FRONT, T.c1, "open");
-  s.closure(WIN_REAR, T.c1 + 0.44, "open");
-  // Strip-down: windows rise (≈4 s), closed again before the roll call.
-  s.closure(WINDOWS, T.strip, "close");
-  // Finale: windows shimmy as the company sings his name, then everything closes
-  // (windows ≈4 s, trunk 4 s) so the car is shut for the last hit at 3:53.4.
-  s.closure(WINDOWS, T.finale, "dance", T.call - 0.3);
-  s.closure(WINDOWS, T.call - 0.3, "close");
+  // Roll call: the voice that owns the left side moves the left windows, then the right.
+  s.closure([37, 38], T.voices[0][0], "dance", T.voices[0][0] + 1.2);
+  s.closure([39, 40], T.voices[1][0], "dance", T.voices[1][0] + 1.2);
+  // Finale: the company says his name and the glass dances.
+  s.closure(WINDOWS, T.finale, "dance", T.finale + 2.2);
+  // Trunk shuts for the last hit.
   s.closure(TRUNK, T.call - 0.3, "close");
+  // Glass back fully down after the dance, then up from 232.8 so it is half up only once the
+  // music has ended (~234.3) and fully closed as the audio ends (236.8).
+  s.closure(WINDOWS, T.finale + 2.3, "open");
+  s.closure(WINDOWS, 232.8, "close");
 }

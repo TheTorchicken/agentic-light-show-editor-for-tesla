@@ -77,31 +77,35 @@ Exterior light energy by analyzer section: 0.09 opening, 0.19 first flight, 0.12
 
 ## Dance moves (closures, unverified on this car)
 
+Windows stay down while music plays (the music comes only from the cabin speakers). They
+go down at 0:00 and move only by dancing. Each dance is one full 2.2 s swing, partway up
+and back down. They close at 2:32.5, after the music has ended and before the audio ends at 2:36.9.
+
 | Time | Move | Lands on |
 |---|---|---|
-| 0:00 → 0:02 | Mirrors fold | The ignition hit |
+| 0:00 → 0:04 | All four windows down; mirrors fold (land 0:02) | The ignition hit |
 | 0:28.9 → 0:30.9 | Mirrors unfold | The choir rise |
 | 1:01.5 → 1:03.5 | Mirrors fold | The leap |
+| 1:03.5-1:05.7 | Front windows swing | The leap |
 | 1:16 → 1:30 | Trunk opens (14 s) | The climax |
 | 1:21.9 | Mirrors unfold | The hush |
-| 1:26 → 1:30 | Front windows down | The climax |
 | 1:28.0 / 1:28.5 | Mirrors fold, left then right | A nod into the climax |
-| 1:30.0-1:33.0 | All four windows dance | The climax's first bars |
-| 1:33.05 | All windows close | After the dance |
+| 1:30.0-1:32.2 | All four windows swing | The climax |
 | 1:34.9 | Mirrors unfold | Over the sea |
 | 1:51.2 → 1:53.2 | Mirrors fold, charge port opens | The second peak |
+| 1:53.2-1:55.4 | Rear windows swing | The second peak |
 | 1:54.5 | Mirrors unfold | Rising sun |
-| 1:58.6 → 2:02.6 | All four windows down | The grand theme |
-| 2:02.6-2:10.0 | Charge port dances | The grand theme |
+| 2:02.6-2:06.6 | Charge port dances | The grand theme |
 | 2:16.0 → 2:18 | Charge port closes | |
 | 2:19.6 → 2:21.6 | Mirrors fold | The last crescendo |
-| 2:20.05-2:22.3 | All four windows dance (from down) | The last crescendo |
-| 2:22.4 | Windows close, trunk closes, mirrors unfold | The silence |
+| 2:20.05-2:22.25 | All four windows swing | The last crescendo |
+| 2:22.4 | Trunk closes (4 s), mirrors unfold | The silence |
 | 2:25.3 → 2:27.3 | Mirrors fold | The final hit |
-| 2:28.6 → 2:30.6 | Mirrors unfold | The car ends closed, mirrors out |
+| 2:28.6 → 2:30.6 | Mirrors unfold | |
+| 2:32.5 → 2:36.5 | All four windows up | After the music; the car ends closed, mirrors out |
 
-Counts: mirrors 12 each (limit 20), front windows 6 (6), rear windows 5 (6), trunk 2 (6),
-charge port 3 (3). Dancing: 4 × 3 s + 4 × 2.25 s + 7.4 s ≈ 28 s.
+Counts: windows 5 each (limit 6), mirrors 12 each (20), trunk 2 (6), charge port 3 (3).
+Dancing: 12 window swings × 2.2 s = 26.4 s plus the port 4 s ≈ 30 s.
 
 ## Checks
 
