@@ -1,0 +1,21 @@
+{
+  "title": "Top Gun Anthem",
+  "artist": "Harold Faltermeyer",
+  "profile": "profiles/model3-2027.json",
+  "audio": "workspace/top-gun/show-audio/TopGunAnthem.wav",
+  "analysis": "workspace/top-gun/analysis-show.json",
+  "sections": [
+    { "start": 0, "name": "radar" },
+    { "start": 4.6, "name": "engines spool" },
+    { "start": 13.52, "name": "guitar entrance + wingmen" },
+    { "start": 22.54, "name": "formation" },
+    { "start": 29.25, "name": "the climb" },
+    { "start": 31.49, "name": "afterburner (key change)" },
+    { "start": 40.45, "name": "barrel roll" },
+    { "start": 49.41, "name": "the soar" },
+    { "start": 58.37, "name": "approach" },
+    { "start": 62.84, "name": "final approach" },
+    { "start": 65.6, "name": "final chord" },
+    { "start": 66.49, "name": "after the music" }
+  ]
+}

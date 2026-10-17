@@ -89,7 +89,7 @@ export async function compile(showDir: string, root = process.cwd()) {
     const want = kind === "mirror" ? 1 : 0, end = c.position[c.position.length - 1];
     if (Math.abs(end - want) > 0.02) show.warnings.push(`${c.id} ends ${kind === "mirror" ? "folded" : "open"} (position ${end.toFixed(2)}); a dance leaves it mid-swing, so close or unfold it after.`);
   }
-  const review = critique(sim, profile, analysis, show.stepMs, theme);
+  const review = critique(sim, profile, analysis, seq.stepMs, theme);
 
   const out = resolve(root, "workspace", slug, "build");
   mkdirSync(out, { recursive: true });
@@ -98,7 +98,7 @@ export async function compile(showDir: string, root = process.cwd()) {
   writeFileSync(join(out, "viewer.json"), JSON.stringify({
     title: config.title,
     audio: `${fileBase}.wav`,
-    stepMs: show.stepMs,
+    stepMs: seq.stepMs,
     frames: Math.floor(seq.data.length / seq.channelCount),
     profile,
     analysis: { tempo: analysis.tempo, beats: analysis.beats, downbeats: analysis.downbeats, sections: analysis.sections, energy: analysis.energy, curveStep: analysis.curveStep },
